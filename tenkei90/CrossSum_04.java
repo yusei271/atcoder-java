@@ -8,8 +8,31 @@ public class CrossSum_04 {
     static PrintWriter out = new PrintWriter(System.out);
 
     public static void main(String[] args) {
-        int n = sc.nextInt();
-        out.println(n);
+        int H = sc.nextInt();
+        int W = sc.nextInt();
+
+        int[][] A = new int[H][W];
+        long[] rowSum = new long[H];
+        long[] colSum = new long[W];
+
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j < W; j++) {
+                int x = sc.nextInt();
+                A[i][j] = x;
+                rowSum[i] += x;
+                colSum[j] += x;
+            }
+        }
+
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j < W; j++) {
+                long blackCount = rowSum[i] + colSum[j] - A[i][j];
+                out.print(blackCount);
+                if (j + 1 < W) out.print(" ");
+            }
+            out.println();
+        }
+
         out.flush();
     }
 
