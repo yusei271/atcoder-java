@@ -1,3 +1,5 @@
+// Precompute rowSum + colSum and subtract A[i][j].
+
 package tenkei90;
 
 import java.io.*;
